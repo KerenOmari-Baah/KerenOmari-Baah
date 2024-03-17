@@ -4,49 +4,27 @@
 
 Welcome to my professional portfolio. I'm currently pursuing an MSc in Data Science for Society and Business at Constructor University, Bremen, Germany. This repository showcases projects that mirror my growing expertise in data science applied across various domains, including marine science, healthcare, and finance.
 
-## Education
-
-**Constructor University, Bremen, Germany (August 2023 - Present)**  
-MSc. Data Science for Society and Business  
-Relevant Coursework: Data Analytics, Digital Societies and Future Economies, Current Topic and Applications in Data Science, Digital Business Models and Functions, Machine Learning
-
-**University of Ghana, Accra, Ghana (September 2018 - October 2022)**  
-BSc. Biological Sciences – Marine Science Major  
-Relevant Coursework: Biostatistics and Research Methods, Ocean Data Management, Entrepreneurship in Fisheries and Marine Sciences
-
-## Experience & Leadership
-
-**Regional Maritime Center, Accra - Ghana (May 2022 - June 2022)**  
-Role: Global Monitoring for Environment and Security Intern  
-Responsibilities:
-- Visualized and assessed earth observation data to support time and resource management for small-scale fishermen in Keta, Ghana.
-- Analyzed mangrove forest degradation rates along the Volta Delta to aid in monitoring and preservation efforts.
-
-## Skills & Languages
-
-- **Programming Languages:** Python, HTML, R
-- **Software:** Microsoft Office Suite
-- **Languages:** Fluent in English and Twi; Intermediate in German and French
 
 ## Projects
 
 ### Completed Projects
 
-1. **The Role of Artificial Intelligence in Enhancing Breast Cancer Diagnosis and Personalized Treatment**  
-   _Type: Report_  
-   Overview: Utilized AI models to improve accuracy and personalization in breast cancer treatment plans.
-
-2. **Investigating Factors Influencing Salaries of Data Science Roles**  
+1. **Investigating Factors Influencing Salaries of Data Science Roles**  
    _Type: Data Analysis_  
    Overview: Analyzed various factors that impact salary trends in the data science field.
 
-3. **Analyzing Determinants of Academic Performance**  
+2.  **Analyzing Determinants of Academic Performance**  
    _Type: Data Analysis_  
    Overview: Explored key factors influencing student success in Portuguese educational settings.
+
+3. **The Role of Artificial Intelligence in Enhancing Breast Cancer Diagnosis and Personalized Treatment**  
+   _Type: Report_  
+   Overview: Discussed the role of AI models in improvimg accuracy and personalization in breast cancer treatment plans.
    
-4. **Assessing The Compliance Of The 2021 Closed Season in Ghana Using AIS Data**
-   _Type:      
+5. **Assessing The Compliance Of The 2021 Closed Season in Ghana Using AIS Data**
+   _Type:_
    Overview: 
+
 
 ### Ongoing projects
 
@@ -71,6 +49,30 @@ Responsibilities:
 3. **AI-based Structural Integrity Monitoring for Aircraft**  
    _Type: Machine Learning & Deep Learning_  
    Objective: To predict the structural integrity of aircraft composite hulls using advanced machine learning models and sensor data.
+
+## Education
+
+**Constructor University, Bremen, Germany (August 2023 - Present)**  
+MSc. Data Science for Society and Business  
+Relevant Coursework: Data Analytics, Digital Societies and Future Economies, Current Topic and Applications in Data Science, Digital Business Models and Functions, Machine Learning
+
+**University of Ghana, Accra, Ghana (September 2018 - October 2022)**  
+BSc. Biological Sciences – Marine Science Major  
+Relevant Coursework: Biostatistics and Research Methods, Ocean Data Management, Entrepreneurship in Fisheries and Marine Sciences
+
+## Experience & Leadership
+
+**Regional Maritime Center, Accra - Ghana (May 2022 - June 2022)**  
+Role: Global Monitoring for Environment and Security Intern  
+Responsibilities:
+- Visualized and assessed earth observation data to support time and resource management for small-scale fishermen in Keta, Ghana.
+- Analyzed mangrove forest degradation rates along the Volta Delta to aid in monitoring and preservation efforts.
+
+## Skills & Languages
+
+- **Programming Languages:** Python, HTML, R
+- **Software:** Microsoft Office Suite
+- **Languages:** Fluent in English and Twi; Intermediate in German and French
 
 ## Contact Information
 
