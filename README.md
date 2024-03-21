@@ -79,8 +79,6 @@ Responsibilities:
 Feel free to reach out to me for collaboration or questions regarding my projects. [linkedin, kerendankwah@gmail.com, phone+49 176 840 33523].
 
 ---
- Ensure that each project listed in your README has its own dedicated folder and detailed README within the repository to guide viewers through your projects.
+Each project listed the README has its own dedicated repository and detailed README within the repository to guide you through the projects.
 
-<!--
-**KerenOmari-Baah/KerenOmari-Baah** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
