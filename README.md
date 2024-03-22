@@ -22,8 +22,8 @@ Welcome to my professional portfolio. I'm currently pursuing an MSc in Data Scie
    Overview: Discussed the role of AI models in improvimg accuracy and personalization in breast cancer treatment plans.
    
 5. **Assessing The Compliance Of The 2021 Closed Season in Ghana Using AIS Data**
-   _Type:_
-   Overview: 
+   _Type: Report_
+   Overview: Examines the adherence to Ghana's 2021 fishing closed season using Automatic Identification System (AIS) data to assess compliance and suggest improvements.
 
 
 ### Ongoing projects
@@ -67,6 +67,9 @@ Role: Global Monitoring for Environment and Security Intern
 Responsibilities:
 - Visualized and assessed earth observation data to support time and resource management for small-scale fishermen in Keta, Ghana.
 - Analyzed mangrove forest degradation rates along the Volta Delta to aid in monitoring and preservation efforts.
+- Prepared and presented detailed reports on environmental findings to senior analysts for strategic planning and environmental conservation measures.
+- Conducted a comprehensive training needs assessment that informed the development and implementation of workshops aimed at educating local authorities and fishermen on the environmental management and security. 
+
 
 ## Skills & Languages
 
@@ -74,9 +77,36 @@ Responsibilities:
 - **Software:** Microsoft Office Suite
 - **Languages:** Fluent in English and Twi; Intermediate in German and French
 
+
+EDUCATION                                                                                                                                                                                                                                       
+MSc. Data Science for Society and Business, Constructor University, Bremen, Germany  
+August 2023 – Present Relevant Coursework:  Data Analytics, Digital Societies and Future Economies, Current Topic and Applications in Data Science, Digital Business Models and Functions, Machine Learning, Text Analysis and NLP.
+
+BSc. Biological Sciences – Marine Science Major, University of Ghana, Accra, Ghana 
+September 2018 - October 2023 Thesis: Assessing the compliance of the 2021 closed season in ghana using AIS data.
+
+TECHNICAL SKILLS                                                                                                                                                                                                                            
+Programming: R, R Markdown, R Shin y, Python, SAS, HTML, CSS.
+Technologies: Git, Tableau, Microsoft Office Suite, Radipminer.
+Languages: Fluent- English (Official language), Twi. Intermediate- German, French.
+ 
+PROFESSIONAL EXPERIENCE                                                                                                                                                                                                         
+Global Monitoring for Environment and Security Intern - Regional Maritime Center, Accra, Ghana (May 2022 - June 2022)
+•	Visualized and assessed earth observation data to provide time and resource management support for small-scale fishermen in Keta, Ghana.
+•	Analyzed the degradation rate of mangrove forests along the Volta Delta to aid in monitoring and preserving the wetland sites in those areas. 
+•	Prepared and presented detailed reports on environmental findings to senior analysts for strategic planning and environmental conservation measures.
+•	Conducted a comprehensive training needs assessment that informed the development and implementation of workshops aimed at educating local authorities and fishermen on the environmental management and security. 
+
+Shop Assistant - Castle Build Enterprise Limited, Accra, Ghana (August 2018 - November 2020)
+Managed shop inventory by tracking received and processed shipments as well as deliveries to our customers using Excel.
+•	Performed monthly price audits with our other branches to identify and amend any price discrepancies.
+•	Oversaw to end-of-day cleaning duties as well as balancing the business’ books with the inventory.
+•	Designed and implemented a customer loyalty program, resulting in a 15% increase in repeat customer visits.
+•	Coordinated with vendors to secure promotional items and organize seasonal sales that boosted customer engagement and sales figures.
+
 ## Contact Information
 
-Feel free to reach out to me for collaboration or questions regarding my projects. [linkedin, kerendankwah@gmail.com, phone+49 176 840 33523].
+Feel free to reach out to me for collaboration or questions regarding my projects. [https://www.linkedin.com/in/kerendankwah,phone+49 176 840 33523].
 
 ---
 Each project listed the README has its own dedicated repository and detailed README within the repository to guide you through the projects.
