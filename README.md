@@ -19,12 +19,7 @@ Welcome to my professional portfolio. I'm currently pursuing an MSc in Data Scie
    Overview: Explored key factors influencing student success in Portuguese educational settings.
 
 
-3. **The Role of Artificial Intelligence in Enhancing Breast Cancer Diagnosis and Personalized Treatment** https://github.com/KerenOmari-Baah/Breast-Cancer.git    
-   _Type: Report_  
-   Overview: Discussed the role of AI models in improvimg accuracy and personalization in breast cancer treatment plans.
-
-   
-4. **Assessing The Compliance Of The 2021 Closed Season in Ghana Using AIS Data** https://github.com/KerenOmari-Baah/Fishing-Compliance.git
+3. **Assessing The Compliance Of The 2021 Closed Season in Ghana Using AIS Data** https://github.com/KerenOmari-Baah/Fishing-Compliance.git
    _Type: Report_
     Overview: Examines the adherence to Ghana's 2021 fishing closed season using Automatic Identification System (AIS) data to assess compliance and suggest improvements.
 
@@ -35,9 +30,13 @@ Welcome to my professional portfolio. I'm currently pursuing an MSc in Data Scie
     _Type: Data Analysis_  (Collaborative)
    Overview: Developed predictive models to identify potential customer churn in banking, enhancing customer retention strategies.
 
-3. **A Comparative Analysis of Trends in Precision Medicine Trials** https://github.com/KerenOmari-Baah/Precision-Medical-Trails.git 
+2. **A Comparative Analysis of Trends in Precision Medicine Trials** https://github.com/KerenOmari-Baah/Precision-Medical-Trails.git 
     _Type: Text Analysis and Natural Language Processing_  
    Overview: Examined cross-sectional data to compare trends between oncology and autoimmune diseases in precision medicine trials.
+
+3. **The Role of Artificial Intelligence in Enhancing Breast Cancer Diagnosis and Personalized Treatment** https://github.com/KerenOmari-Baah/Breast-Cancer.git    
+   _Type: Report_  
+   Overview: Discussed the role of AI models in improvimg accuracy and personalization in breast cancer treatment plans.
 
 ### Upcoming Projects
 
