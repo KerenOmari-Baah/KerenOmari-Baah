@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>A Comparative Analysis of Trends in Precision Medicine Trials: A Cross-Sectional Study of Oncology versus Autoimmune Diseases</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="KerenOmari-Baah.textanalysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="KerenOmari-Baah.textanalysis_files/libs/quarto-html/quarto.js"></script>
+<script src="KerenOmari-Baah.textanalysis_files/libs/quarto-html/popper.min.js"></script>
+<script src="KerenOmari-Baah.textanalysis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="KerenOmari-Baah.textanalysis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="KerenOmari-Baah.textanalysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="KerenOmari-Baah.textanalysis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="KerenOmari-Baah.textanalysis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="KerenOmari-Baah.textanalysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="KerenOmari-Baah.textanalysis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><em>A Comparative Analysis of Trends in Precision Medicine Trials: A Cross-Sectional Study of Oncology versus Autoimmune Diseases</em></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Keren Omari-Baah</strong></p>
+<section id="executive-summary" class="level2">
+<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
+<p>This report presents a comparative analysis of precision medicine trials for oncology and autoimmune diseases, using data from <a href="https://clinicaltrials.gov/">ClinicalTrials.gov</a>. The study identifies key trends, disparities, and similarities in research focus, methodologies, and regional patterns to inform future research strategies and improve patient care. Oncology trials are found to predominantly focus on various cancers, especially breast and lung cancers, with a significant increase in trial activity over recent years. These trials exhibit a wide variety of study designs and are concentrated in major UK research centers. In contrast, autoimmune disease trials show a broader but less concentrated focus on conditions like rheumatoid arthritis, with fewer trials and a more limited range of study designs. These trials are more geographically dispersed. Topic modeling using Latent Dirichlet Allocation (LDA) highlights key themes in oncology research, such as clinical data integration and genetic research, while K-Means clustering reveals distinct groups of trials with similar characteristics. Despite the study’s limitations, including potential data biases and the dynamic nature of clinical trials, the findings underscore the dynamic and multifaceted nature of oncology research and highlight the need for growth in autoimmune disease research. The analysis suggests pathways for enhancing research strategies and improving patient care across both fields, recommending increased investment and methodological diversity in autoimmune trials.</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">1. Introduction</h2>
+<p>In a strive to seek new technologies and innovations in healthcare, the era of “one size fits all” treatment is coming to an end. According to the FDA, Precision medicine is an innovative approach for disease prevention and treatment that takes into account differences in people’s genes, environments, and lifestyles. Precision medicine, also known as personalized medicine, presents a more efficient mode of treatment and diagnosis in healthcare and also drug development for the pharmaceutical industries, promising more effective therapeutic tools for physicians and better outcomes for patients. An analysis by the Tufts Center for the Study of Drug Development in 2016 estimated that the cost to bring a new drug to market is about $2.5 billion yet most not drugs do not work for every patient. For example, the 10 highest-grossing drugs prescribed today in the U.S. are effective in just 25% of recipients. ‘Hence, the need for precision medicine, which is formalized as a treatment regime comprising a sequence of decision rules that map up-to-date patient information to a recommended action’(Kosorok &amp; Laber, 2019).</p>
+<p>Currently, oncology is the primary field benefiting from precision medicine. ‘Herceptin, for instance, targets human epidermal growth factor 2 (HER2) receptors and is only administered to patients who overexpress the receptor. The drug’s success exemplifies that better characterizing a particular disease phenotype at the molecular level and developing therapies and diagnostic tools that exploit this knowledge is an effective way of boosting treatment response rates’(Hudis, C. A. 2007). Oncology has received significant financial investment compared to other diseases within academia, clinical and pharmaceutical industries. Regulatory bodies also encouraged pharmaceutical companies to invest in biomarker-driven approaches to enhance patient stratification and improve patient outcomes.</p>
+<p>However, the application of precision medicine to other important therapeutic areas is essential but lagging. Autoimmune diseases, for instance, have significant economic and social impacts and represent ‘the second-most important market for pharmaceutical companies. While 1 in 33 Americans will suffer from cancer, 1 in 6 will suffer from an autoimmune disease, costing the U.S. over $100 billion a year’(American Cancer Society,2021). The uptake of precision medicine in this area has been slow, even though accurately diagnosing and effectively treating patients with autoimmune diseases is currently extremely difficult with the technologies available. Emerging technologies such as liquid biopsies are transforming cancer care by enabling less invasive diagnostics and more personalized therapeutic strategies. In contrast, autoimmune diseases, affecting a larger fraction of the population, have seen slower progress despite their potential for significant patient benefit through precision approaches.</p>
+</section>
+<section id="literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="literature-review">2. Literature Review</h2>
+<p>Thirty years ago, the concept of doctors prescribing medicines tailored to a patient’s individual characteristics was speculative, often considered a theoretical possibility. But by 2018, 42% of medicines approved by the US FDA were associated with a diagnostic test or a specific disease sub-group, proving the significant strides made in this field.Several emerging trends and technologies are shaping the landscape of precision medicine. Notably, advanced genome sequencing techniques, such as next-generation sequencing (NGS), are crucial for comprehensive genetic and protein profiling. Additionally, integrating electronic health records into precision medicine frameworks provides a holistic view of a patient’s health history, further informing the selection and optimization of medical treatments. Another significant trend in precision medicine is the incorporation of big data, artificial intelligence (AI), and Internet of Things (IoT) technologies to create new healthcare models. AI and machine learning algorithms can analyze vast datasets, identifying patterns and correlations that might be overlooked by medical practitioners. ‘For instance, in oncology, precision medicine is driven by advancements in AI, genomic medicine, next-generation cancer organoids, nanoparticles, and pressurized intraperitoneal aerosol chemotherapy’ (PIPAC) (Philpott, 2023).</p>
+<p>Precision medicine has applications across various medical fields, including oncology, autoimmune diseases, cardiology, neurology, and infectious diseases. Despite significant progress, gaps remain, especially in the application of precision medicine technologies to autoimmune diseases even though it affects up to 5% of the Western population. Recent advances in understanding the pathogenesis and therapy of human autoimmunity have been significant topics of discussion at recent conferences. Identifying and addressing these gaps is crucial, particularly regarding the application of precision medicine technologies to autoimmune diseases. Increased understanding of autoimmunity will likely generate many exciting theoretical and experimental therapeutic approaches, although practical application in diverse populations may present considerable challenges. This report aims to provide a comprehensive comparative analysis of trends in precision medicine trials between oncology and autoimmune diseases by evaluating the frequency of conditions studied, therapeutic strategies, and the progression of trials over time. The analysis examines study characteristics, including study status, interventions, and primary outcome measures, as well as the geographic distribution of trials. Additionally, it explores the integration of new technologies using advanced analytical techniques such as topic modeling and clustering to identify disparities between the two fields and suggest improvements for future research and patient care.</p>
+</section>
+<section id="data-and-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-methodology">3. Data and Methodology</h2>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">3.1 Data Collection</h3>
+<p>The data utilized for this study was collected from <a href="https://clinicaltrials.gov/">ClinicalTrials.gov</a> API, focusing on precision medicine trials. It uses a wide range of trial information including: NCT Number, Study Title, Study URL, Acronym, Study Status, Brief Summary, Study Results, Conditions, Interventions, Primary Outcome Measures, Secondary Outcome Measures, Study Design, Other IDs, Start Date, Primary Completion Date, Completion Date, First Posted, Results First Posted, Last Update Posted, Locations, and Study Documents. The dataset has 684 entries and 30 columns. However, the initial dataset was filtered to include only those trials relevant to oncology and autoimmune diseases. This table provides an overview of key variables in the dataset along with their descriptions.</p>
+<table class="table">
+<colgroup>
+<col style="width: 67%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Study Title</strong></td>
+<td>This column provides a brief overview of the study.</td>
+</tr>
+<tr class="even">
+<td><strong>Brief Summary</strong></td>
+<td>This column offers a more detailed description of the study.</td>
+</tr>
+<tr class="odd">
+<td><strong>Conditions</strong></td>
+<td>This variable is a list of medical conditions being.</td>
+</tr>
+<tr class="even">
+<td><strong>Study Status</strong></td>
+<td>The status indicates the current state of the trial such as, recruiting, completed.</td>
+</tr>
+<tr class="odd">
+<td><strong>Interventions</strong></td>
+<td>This variable describes the interventions used in the trial.</td>
+</tr>
+<tr class="even">
+<td><strong>Primary Outcome Measures</strong></td>
+<td>Tis column details the main outcomes the study aims to measure.</td>
+</tr>
+<tr class="odd">
+<td><strong>Study Design</strong></td>
+<td>This variable provides information on how the study is structured.</td>
+</tr>
+<tr class="even">
+<td><strong>Start Date</strong></td>
+<td>This column indicates when the study commenced, useful for trend analysis over time.</td>
+</tr>
+<tr class="odd">
+<td><strong>Completion Date</strong></td>
+<td>This column hows when the study was or will be completed, also useful for temporal trend analysis.</td>
+</tr>
+<tr class="even">
+<td><strong>Location</strong></td>
+<td>This variable specifies the geographic sites where the clinical trials were conducted.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-cleaning-and-preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-and-preprocessing">3.2 Data Cleaning and Preprocessing</h3>
+<p>In this study, the dataset was initially filtered to retain only the relevant columns and any missing data in these columns were filled with ‘NA’.The dates was also coverted to a better format for analysis. The text data in these columns were then cleaned by converting to lowercase, removing special characters, tokenizing, and lemmatizing the words, while also removing stop words. The cleaned text data were encoded using TF-IDF (Term Frequency-Inverse Document Frequency) to transform them into numerical features suitable for analysis. Categorical variables such as Study Status and Study Design were encoded using Label Encoding. The dataset was then augmented with the new TF-IDF features, and the original text columns were removed. Finally, the conditions were categorized into Oncology and Autoimmune Diseases based on specific keywords, with non-relevant categories being filtered out.For details on data loading and filtering, (<a href="#code-section-a3">see Code Section A3</a>).</p>
+</section>
+<section id="analysis" class="level3">
+<h3 class="anchored" data-anchor-id="analysis">3.3 Analysis</h3>
+<p>For the analysis, several techniques to extract meaningful insights from the dataset were employed. We conducted frequency analysis and generated word clouds to identify predominant themes and focus areas in precision medicine research for oncology and autoimmune diseases. Temporal trend analysis was performed to observe patterns in the initiation and completion of trials over the years. Study characteristics, including study status, interventions, and primary outcome measures, were examined to highlight differences and similarities between the two fields. Geographic distribution analysis provided insights into regional patterns in research focus. Additionally, further analysis such Latent Dirichlet Allocation (LDA) was used for topic modeling to uncover hidden themes in study summaries, and K-Means clustering was applied to group trials based on their features, revealing distinct clusters with similar characteristics allowing for the identification disparities to make suggestions improvements for future research and patient care. For code on main analysis (<a href="#code-section-a5">see Code Section A5</a>) and for code on further analysis (<a href="#code-section-a6">see Code Section A6</a>).</p>
+</section>
+</section>
+<section id="understanding-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-data">3. Understanding the Data</h2>
+<p>The dataset is made up of a 181 precision medicine trials, categorized into Oncology and Autoimmune Diseases. A significant majority of the trials fall under the Oncology category, as depicted in the bar chart of trial counts by category, as shown in Figure 1. The distribution of study status reveals that most trials are either recruiting or completed, indicating active research and substantial progress in these fields (Figure 2). The study design distribution shows a variety of methodologies employed, with Observational Model: |Time Perspective: p (80 trials) being the most common(Figure 3).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="trials_by_category.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 1: Number of Trials by Category</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="study_status_distribution.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 2: Study Status Distribution</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="study_design_distribution.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 3: Study Design Distribution</figcaption>
+</figure>
+</div>
+<p>The trial duration analysis provides insights into the length of these studies. The histogram of trial durations (Figure 4) indicates that most trials are completed within 986 to 2642 days, although there is some variation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="trial_duration_distribution.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 4: Trial Duration Distribution</figcaption>
+</figure>
+</div>
+<p>From these visualizations we understand the current state of precision medicine research in both oncology and autoimmune diseases.</p>
+</section>
+<section id="main-analysis-and-results" class="level2">
+<h2 class="anchored" data-anchor-id="main-analysis-and-results">4. Main Analysis and Results</h2>
+<p>This section provides a comprehensive comparative analysis of trends in precision medicine trials for oncology and autoimmune diseases. By examining the frequency of conditions, temporal trends, study characteristics, geographic distribution, and study designs, we highlight the differences and similarities in research focus, methodologies, and regional patterns.</p>
+<section id="key-areas-of-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="key-areas-of-analysis">4.1 Key Areas of Analysis</h3>
+<section id="frequency-analysis-and-word-cloud" class="level4">
+<h4 class="anchored" data-anchor-id="frequency-analysis-and-word-cloud">4.1.1 Frequency Analysis and Word Cloud</h4>
+<p>The analysis revealed distinct patterns between the two areas of research. In oncology trials, common conditions included “cancer” (147 mentions), “breast” (49 mentions), and “solid” (34 mentions), with other frequently mentioned terms like “cell” (29 mentions), “tumor” (25 mentions), and “lung” (20 mentions). In contrast, autoimmune disease trials predominantly mentioned “rheumatoid” (3 mentions) and “arthritis” (2 mentions), along with terms related to general health and specific dysfunctions such as “subjective gastrointestinal” and “cardiovascular risk factors.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="oncology_conditions_wordcloud.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 5: Most Common Oncology Conditions</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="autoimmune_conditions_wordcloud.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 6: Most Common Autoimmune Conditions</figcaption>
+</figure>
+</div>
+<p>The analysis of study titles further highlighted these differences. Oncology study titles commonly featured keywords such as “cancer” (97 mentions), “precision” (54 mentions), and “patient” (43 mentions), indicating a heavy focus on precision medicine tailored to cancer patients. Other significant keywords included “study,” “medicine,” “treatment,” and “therapy.” In autoimmune disease study titles, the most frequent keywords were “study” (4 mentions), “medicine” (3 mentions), and “rheumatoid” (3 mentions). Terms like “lifestyle,” “disease,” and “arthritis” also appeared frequently,specific autoimmune conditions in these studies. These findings, illustrated by the word cloud visualizations, show that studies in oncology receive more attention than those in autoimmune diseases.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="oncology_titles_wordcloud.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 7: Most Common Keywords in Oncology Study Titles</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="autoimmune_titles_wordcloud.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 8: Most Common Keywords in Autoimmune Study Titles</figcaption>
+</figure>
+</div>
+</section>
+<section id="temporal-trends" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-trends">4.1.2 Temporal Trends</h4>
+<p>The temporal trends analysis shows distinct patterns in the initiation and completion of trials over the years. The number of oncology trials initiated each year has steadily increased, with a noticeable spike around 2018-2020, peaking at over 25 trials in a single year. This trend reflects a growing interest and investment in precision medicine for oncology. In contrast, the number of autoimmune disease trials started each year remains relatively low and stable, with a slight increase around 2015-2017 but not exceeding 5 trials per year. This indicates a slower growth in the research focus on autoimmune diseases compared to oncology.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="trials_started_each_year.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 9: Number of Trials Started Each Year</figcaption>
+</figure>
+</div>
+<p>The completion rates of oncology trials exhibit a significant increase around 2020-2025, aligning with the spike in initiated trials. The number of completed trials peaks at over 20 per year, showcasing the progress in oncology research and the ability to bring trials to completion. Autoimmune disease trials show a much lower and steadier completion rate, with a maximum of about 5 trials completed in a year.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="trials_completed_each_year.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 9: Number of Trials Completed Each Year</figcaption>
+</figure>
+</div>
+</section>
+<section id="study-characteristics" class="level4">
+<h4 class="anchored" data-anchor-id="study-characteristics">4.1.3 Study Characteristics</h4>
+<p>For oncology trials, the most common study status is “RECRUITING” (89 trials), followed by “UNKNOWN” (25 trials) and “COMPLETED” (22 trials). Other statuses include “ACTIVE_NOT_RECRUITING” (15 trials), “NOT_YET_RECRUITING” (13 trials), “TERMINATED” (7 trials), “SUSPENDED” (1 trial), and “WITHDRAWN” (1 trial). This distribution indicates a substantial number of active and ongoing trials in oncology, with a smaller number reaching completion or being terminated. For autoimmune disease trials, the most frequent status is “COMPLETED” (4 trials), with other statuses being “UNKNOWN” (2 trials), “RECRUITING” (1 trial), and “NOT_YET_RECRUITING” (1 trial). This distribution reflects a smaller scale of active research and completed trials in autoimmune diseases compared to oncology.</p>
+<p>In oncology trials, the most common interventions involve drugs, such as “DRUG: Everolimus” (5 trials), “DRUG: Entrectinib” (4 trials), and “DRUG: Carboplatin” (4 trials). Other notable interventions include “DRUG: Capecitabine” (3 trials), “DRUG: Atezolizumab” (3 trials), and “DRUG: Olaparib” (3 trials). This indicates a strong focus on pharmaceutical treatments in oncology precision medicine trials. In autoimmune disease trials, the interventions are more diverse, including “BIOLOGICAL: Regulatory T cells” and “BIOLOGICAL: Placebo” among others. Notable interventions also include behavioral and dietary changes, such as “BEHAVIORAL: Behavioral change support program” and “OTHER: Food plan,” suggesting a broader approach to interventions in autoimmune disease trials, encompassing biological, behavioral, and dietary strategies.</p>
+<p>The primary outcome measures in oncology trials are varied, including knowledge assessment, objective response rate (ORR), tumor control rate, and progression-free survival. Examples include “Knowledge of precision medicine for cancer care” and “Objective Response Rate (ORR) and tumor control rate.” This variety indicates dynamic goals of oncology trials, aiming to measure treatment efficacy, disease progression, and patient knowledge. In autoimmune disease trials, primary outcome measures focus on changes in disease activity scores, serum biomarkers, gene expression, and body measurements. Examples include “Change in Disease Activity Score in 28 Joints (DAS28)” and “Change in serum biomarkers, gene expression.”</p>
+</section>
+<section id="geographic-distribution" class="level4">
+<h4 class="anchored" data-anchor-id="geographic-distribution">4.1.4 Geographic Distribution</h4>
+<p>The geographic distribution of the trials was analyzed to identify regional patterns and to uncover potential disparities in research focus and resource allocation across different regions in precision medicine research for oncology versus autoimmune diseases. The analysis reveals significant differences in the locations where oncology and autoimmune disease trials are conducted, highlighting regional patterns in precision medicine research for these fields. Oncology trials are predominantly concentrated in the United Kingdom, with key institutions such as University Hospital Birmingham, Bristol Haematology and Oncology Centre, Addenbrooke’s Hospital in Cambridge, Velindre Cancer Centre in Cardiff, Western General Hospital in Edinburgh, The Beatson Hospital in Glasgow, Leicester Royal Infirmary, University College London Hospital, Guy’s Hospital in London, and The Christie Hospital in Manchester each hosting five trials. This clustering underscores the UK’s strong infrastructure and focus on advancing cancer research through precision medicine. In contrast, autoimmune disease trials are more geographically dispersed, with each location hosting only one trial. Notable sites include Manchester Royal Infirmary in the UK, the Personalized Lifestyle Medicine Center in Washington, USA, the IRIDIS-VIGO Group in Spain, and various rheumatology units and medical centers across Italy. This dispersion reflects a broader, yet less concentrated, research focus on autoimmune diseases across multiple countries.</p>
+</section>
+<section id="study-design" class="level4">
+<h4 class="anchored" data-anchor-id="study-design">4.1.5 Study Design</h4>
+<p>The study designs used in oncology and autoimmune disease trials were compared, including randomized, non-randomized, and observational designs. It highlighted significant differences in the methodologies employed in oncology and autoimmune disease trials. The most important study design in oncology trials is observational, with a time perspective approach accounting for 75 trials. Randomized allocation with a parallel intervention model and no masking is also common, with 19 trials primarily aimed at treatment. Non-randomized trials with parallel intervention models and no masking account for 17 trials. Other relevant designs include single-group assignments with no masking for treatment (16 trials), basic science (4 trials), and diagnostic purposes (3 trials). Various other designs include sequential intervention models, factorial models, and different levels of masking (e.g., single, double, triple) for diverse primary purposes such as prevention, diagnostic, supportive care, and health services research. In contrast, autoimmune disease trials exhibit a more limited range of study designs. The most common design is observational with a time perspective, accounting for 5 trials. Other designs include single-group assignments with no masking for treatment (1 trial), randomized parallel intervention models with quadruple masking (participant, care provider, investigator, outcomes assessor) aimed at treatment (1 trial), and randomized crossover models with no masking for prevention (1 trial). The analysis of study designs overall reveals a broader and more varied approach in oncology trials compared to autoimmune disease trials, reflecting the higher degree of complexity and the use diverse methodologies in cancer research. This disparity suggests opportunities for expanding and diversifying the methodological frameworks used in autoimmune disease research to enhance the understanding and treatment of these conditions.</p>
+<p><img src="Oncology_Study_Designs.png" class="img-fluid" alt="Figure 10: Oncology Study Designs"> <img src="Autoimmune_Study_Designs.png" class="img-fluid" alt="Figure 11: Autoimmune Study Designs"></p>
+</section>
+</section>
+<section id="further-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="further-analysis">4.2 Further Analysis</h3>
+<section id="latent-dirichlet-allocation-lda" class="level4">
+<h4 class="anchored" data-anchor-id="latent-dirichlet-allocation-lda">4.2.1 Latent Dirichlet Allocation (LDA)</h4>
+<p>To gain deeper insights into the precision medicine trials, we performed text analysis enhancements using Latent Dirichlet Allocation (LDA) for topic modeling. The model revealed key themes and focus areas in the study summaries of precision medicine trials for oncology. Five distinct topics were identified, each characterized by a set of prominent terms that provide insights into the primary areas of research within these trials. <strong>Topic 0</strong> emphasized clinical trials and the integration of data in medical research, with significant terms including “data,” “clinical,” “medicine,” “care,” “trial,” “study,” “drug,” “treatment,” “patient,” and “cancer.” This suggests that stakeholders can focus clinical data to enhance medical care and treatment strategies for cancer patients. <strong>Topic 1</strong> centered around cancer therapies and clinical models, with key terms like “cancer,” “model,” “phase,” “therapy,” “tumor,” “disease,” “clinical,” “treatment,” “patient,” and “study,” showing a heavy focus on various stages of clinical trials and new cancer therapies. <strong>Topic 2</strong> highlights the evaluation of therapy efficacy and safety in clinical settings, with terms such as “participant,” “clinical,” “therapy,” “efficacy,” “response,” “safety,” “treatment,” “tumor,” “patient,” and “study,” indicating the importance of patient outcomes and treatment effectiveness. <strong>Topic 3</strong> focuses on molecular and genetic aspects of cancer research, featuring terms like “molecular,” “response,” “trial,” “genetic,” “escc,” “tumor,” “study,” “cancer,” “treatment,” and “patient,” reflecting a strong interest in the genetic basis of cancer and personalized treatments. <strong>Topic 4</strong> is characterized by discussions on genetic mutations and therapeutic interventions, with significant terms including “therapy,” “mutation,” “genetic,” “clinical,” “drug,” “tumor,” “treatment,” “study,” “cancer,” and “patient,” indicating efforts to understand genetic mutations driving cancer and developing targeted therapies. The model highlighted the main themes in only oncology precision medicine trials, which goes on to prove that autoimmune diseases are being understudied. These insights shows the potential gaps in the current research landscape for autoimmune diseases.</p>
+</section>
+<section id="k-means-clustering" class="level4">
+<h4 class="anchored" data-anchor-id="k-means-clustering">4.2.1 K-Means Clustering</h4>
+<p>Additionally, clustering using K-Means was used to group trials based on their features, including study design, conditions, and textual data from study titles and summaries. This analysis revealed distinct groups of trials with similar characteristics, highlighting the diversity within the dataset. The process involved encoding categorical variables such as study status and study design, followed by scaling the features to ensure comparability. The K-Means algorithm was then applied to identify five clusters within the dataset. The results show that trials were effectively grouped into clusters, highlighting patterns and commonalities among the studies. For example, Cluster 0 includes trials like “Sodium Stibogluconate in the MDS/AML With One…” and “A MolEcularly Guided Anti-Cancer Drug Off-Labe…,” suggesting that these trials share similar features in terms of study design and objectives. Cluster 3 includes trials such as “Ensuring Precision-Medicine Delivery for Veter…” and “A Precision Medicine Approach to Identify Pati…,” indicating a focus on precision medicine delivery and patient-specific approaches. Cluster 1 includes trials like “COV2Base-A Rare Disease by COVID Study,” showing a unique grouping possibly related to specific conditions or methodologies. This provides valuable insights into the diversity and commonalities within precision medicine trials, enabling researchers and stakeholders to identify patterns and relationships that may not be immediately apparent. It also provides insights into the potential use clustering techniques to enhance the understanding of trial characteristics and to inform future research directions.</p>
+</section>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">5. Discussion</h2>
+<p>The comparative analysis of precision medicine trials for oncology and autoimmune diseases reveals several key insights into the research landscape of these fields. The frequency analysis and word clouds highlighted the predominant focus areas, showing a strong emphasis on various types of cancers, particularly breast and lung cancers, in oncology trials, whereas autoimmune trials showed a broader but less concentrated focus on conditions such as rheumatoid arthritis. Temporal trend analysis demonstrated a strong fast-paced and expanding effort in oncology trials, with a significant increase in both initiated and completed trials over recent years, contrasting with the relatively stagnant and fewer autoimmune trials. This disparity points to a higher level of investment and interest in cancer research, likely driven by the urgent need for effective treatments and the potential for precision medicine to offer targeted solutions.</p>
+<p>Study characteristics further illustrated differences in research approaches, with oncology trials showing a greater diversity in study designs, including a mix of observational and randomized trials, whereas autoimmune trials had a more limited range of designs. This suggests that oncology research is leveraging a wider array of methodological tools to address the complexities of cancer treatment, while autoimmune research may benefit from adopting more varied approaches. Geographic distribution analysis revealed that oncology trials are predominantly conducted in major research centers in the United Kingdom, indicating a concentrated effort in these regions. In contrast, autoimmune trials are more dispersed across various countries, reflecting a broader but less focused research initiative.</p>
+<p>The LDA topic modeling identified key themes across the trials, with oncology research focusing on data integration, clinical models, therapy efficacy, molecular and genetic research, and therapeutic interventions. The clustering analysis using K-Means provided additional insights, identifying distinct groups of trials with similar characteristics, thereby highlighting patterns and relationships within the dataset that could inform future research strategies.</p>
+<p>Overall, this analysis shows how advanced and varied oncology research is in precision medicine compared to the still developing and scattered efforts in autoimmune disease research. These findings highlight the need for more investment and varied methods in autoimmune trials to match the progress made in oncology. By identifying these differences and similarities, the analysis suggests ways to improve research strategies and patient care in both fields.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">6. Conclusion</h2>
+<p>This study comparedprecision medicine trials for oncology and autoimmune diseases, providing key insights into these two critical fields. Using frequency analysis, temporal trends, study characteristics, geographic distribution, topic modeling, and clustering techniques, it identifies differences and similarities in research focus, methods, and regional patterns. Oncology research is shown to be robust and dynamic, with diverse study designs, a significant increase in trials over recent years, and a concentration in major research centers, particularly in the United Kingdom. The trials focus heavily on clinical data, exploring the genetic and molecular bases of cancer, and developing targeted therapies. In contrast, autoimmune disease research is more dispersed and less concentrated, with fewer trials and a narrower range of study designs. This indicates a need for more investment and methodological diversity in autoimmune research to match the advancements seen in oncology. The trials could benefit from more varied research approaches and a focus on key geographic regions to increase their impact. Topic modeling of trial summaries highlights the dynamic nature of oncology research and the importance of comprehensive approaches in precision medicine. Clustering analysis reveals distinct groups of trials with similar characteristics, further emphasizing the diversity within the dataset. Despite its limitations, this study shows the dynamic landscape of precision medicine research in oncology while highlighting growth areas in autoimmune disease research. Future research can expand on these findings with broader datasets, additional variables, and more nuanced analytical techniques to provide a fuller picture of precision medicine trials as it evolves.</p>
+<p>In conclusion, while precision medicine has advanced significantly in oncology, similar progress in autoimmune diseases is lacking. This disparity in research focus and resource allocation affects patient care and the overall development of precision medicine. To achieve more equitable healthcare advancements, it is essential to prioritize research in autoimmune diseases, leveraging the technological and methodological innovations successful in oncology. Addressing these gaps can enhance patient outcomes, improve diagnostic accuracy, and develop more effective, personalized treatments for a broader range of diseases.</p>
+</section>
+<section id="recomendations" class="level2">
+<h2 class="anchored" data-anchor-id="recomendations">7. Recomendations</h2>
+<p>To enhance the research landscape for precision medicine in both oncology and autoimmune diseases, it is recommended to increase investment in autoimmune research to parallel the advancements seen in oncology. Diversifying study designs and methodological approaches in autoimmune trials can provide more robust insights and improve patient outcomes.Strengthening international collaboration and focusing efforts in key geographic regions can further enhance the impact of autoimmune research. Additionally, leveraging advanced analytical techniques, such as topic modeling and clustering, can uncover hidden patterns and inform future research strategies, ultimately leading to more targeted and effective treatments for patients.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">8. References</h2>
+<ol type="1">
+<li><p>American Autoimmune Related Diseases Association. (2021). Autoimmune Disease Statistics. Retrieved from https://www.aarda.org/disease-information/statistics/</p></li>
+<li><p>American Cancer Society. (2021). Cancer Facts &amp; Figures 2021. Retrieved from https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2021.html</p></li>
+<li><p>azonetwork. (2024, February 2). Advancing precision medicine: Emerging trends and technologies. Sengenics. https://sengenics.com/blog/advancing-precision-medicine-emerging-trends-technologies/</p></li>
+<li><p>Beyond oncology — precision medicine for autoimmune diseases. (n.d.). Retrieved May 17, 2024, from https://www.lifescienceleader.com/doc/beyond-oncology-precision-medicine-for-autoimmune-diseases-0001</p></li>
+<li><p>Contributors to Wikimedia projects. (2023a, August 13). Progression-free survival. Wikipedia. https://en.m.wikipedia.org/wiki/Progression-free_survival</p></li>
+<li><p>Eisenhauer, E. A., Therasse, P., Bogaerts, J., Schwartz, L. H., Sargent, D., Ford, R., Dancey, J., Arbuck, S., Gwyther, S., Mooney, M., Rubinstein, L., Shankar, L., Dodd, L., Kaplan, R., Lacombe, D., &amp; Verweij, J. (2009). New response evaluation criteria in solid tumours: Revised RECIST guideline (version 1.1). European Journal of Cancer, 45(2), 228–247. https://doi.org/10.1016/j.ejca.2008.10.026</p></li>
+<li><p>Gutman, S. I., Piper, M., Grant, M. D., Basch, E., Oliansky, D. M., &amp; Aronson, N. (2013, April 1). Background. NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK137763/</p></li>
+<li><p>Hoeben, A., Joosten, E. A. J., &amp; van den Beuken-van Everdingen, M. H. J. (2021). Personalized medicine: Recent progress in cancer therapy. Cancers, 13(2), 242. https://doi.org/10.3390/cancers13020242</p></li>
+<li><p>Hudis, C. A. (2007). Trastuzumab—mechanism of action and use in clinical practice. <em>The New England Journal of Medicine</em>, 357(1), 39-51. https://doi.org/10.1056/NEJMra043186</p></li>
+<li><p>Kosorok, M. R., &amp; Laber, E. B. (2019). Precision medicine. Annual Review of Statistics and Its Application, 6, 263–286. https://doi.org/10.1146/annurev-statistics-030718-105251</p></li>
+<li><p>Market Pulse Report. (2024, February 26). Navigating the landscape of precision medicine: A comprehensive analysis of market dynamics, applications, and future prospects (2024 – 2032). https://www.linkedin.com/pulse/navigating-landscape-precision-medicine-hf8nc?trk=public_post_main-feed-card_feed-article-content</p></li>
+<li><p>OpenAI. 2024. ChatGPT. May 19 version. Accessed May 19, 2024. https://www.openai.com.</p></li>
+<li><p>Philpott, J. (2023, August 9). What advancements are shaping the future of oncology? News-Medical. https://www.news-medical.net/health/What-Advancements-are-Shaping-the-Future-of-Oncology.aspx</p></li>
+<li><p>Pazdur, R. (2008). Endpoints for assessing drug activity in clinical trials. The Oncologist, 13 Suppl 2, 19–21. https://doi.org/10.1634/theoncologist.13-S2-19</p></li>
+<li><p>professional, C. C. medical. (n.d.). Targeted therapy. Cleveland Clinic. Retrieved May 13, 2024, from https://my.clevelandclinic.org/health/treatments/22733-targeted-therapy</p></li>
+<li><p>Schwartzberg, L., Kim, E. S., Liu, D., &amp; Schrag, D. (2017). Precision oncology: Who, how, what, when, and when not? American Society of Clinical Oncology Educational Book, 37, 160–169. https://doi.org/10.1200/edbk_174176</p></li>
+<li><p>Sridhara, R., Johnson, J. R., Justice, R., Keegan, P., Chakravarty, A., &amp; Pazdur, R. (2010). Review of oncology and hematology drug product approvals at the US Food and Drug Administration between July 2005 and December 2007. Journal of the National Cancer Institute, 102(4), 230–243. https://doi.org/10.1093/jnci/djp515</p></li>
+<li><p>Strong, L. E. (2015). The past, present, and future of patient-reported outcomes in oncology. American Society of Clinical Oncology Educational Book. American Society of Clinical Oncology. Annual Meeting, e616-20. https://doi.org/10.14694/EdBook_AM.2015.35.e616</p></li>
+<li><p>Targeted therapy for cancer. (n.d.). Cancer.Gov. Retrieved May 13, 2024, from https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies</p></li>
+</ol>
+</section>
+<section id="appendices" class="level2">
+<h2 class="anchored" data-anchor-id="appendices">9. Appendices</h2>
+<section id="appendix-a-code" class="level3">
+<h3 class="anchored" data-anchor-id="appendix-a-code">Appendix A: Code</h3>
+<section id="code-section-a1-libraries" class="level4">
+<h4 class="anchored" data-anchor-id="code-section-a1-libraries">Code section A1: Libraries</h4>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> word_tokenize</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> LatentDirichletAllocation</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer, TfidfVectorizer</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder, StandardScaler</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-section-a2-loading-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="code-section-a2-loading-dataset">Code section A2: Loading dataset</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data and display first few rows</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> <span class="st">'ctg-studies.csv'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> pd.read_csv(medical_trials)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few rows of the dataset:"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(medical_trials.head())</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-section-a3-data-preprocessing-and-encoding" class="level4">
+<h4 class="anchored" data-anchor-id="code-section-a3-data-preprocessing-and-encoding">Code section A3: Data Preprocessing and Encoding</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Download NLTK data files</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'punkt'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'stopwords'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'wordnet'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing data and fill with 'NA'</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Missing data summary:"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(medical_trials.isnull().<span class="bu">sum</span>())</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>medical_trials_filled <span class="op">=</span> medical_trials.fillna(<span class="st">'NA'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">First few rows after filling missing values:"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(medical_trials_filled.head())</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out relevant columns</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>columns_to_keep <span class="op">=</span> [</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Study Title"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Brief Summary"</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Conditions"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Study Status"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Interventions"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Primary Outcome Measures"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Study Design"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Start Date"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Completion Date"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Locations"</span>  </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> medical_trials_filled[columns_to_keep]</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date columns to datetime</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Start Date'</span>] <span class="op">=</span> pd.to_datetime(medical_trials[<span class="st">'Start Date'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Completion Date'</span>] <span class="op">=</span> pd.to_datetime(medical_trials[<span class="st">'Completion Date'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize lemmatizer</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>lemmatizer <span class="op">=</span> WordNetLemmatizer()</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'english'</span>))</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean and preprocess text</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_text(text):</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(text, <span class="bu">str</span>):</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Convert to lowercase</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> text.lower()</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove special characters, numbers, and punctuations</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> re.sub(<span class="vs">r'[^a-zA-Z\s]'</span>, <span class="st">''</span>, text)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tokenize text</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        words <span class="op">=</span> word_tokenize(text)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove stop words and lemmatize</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        words <span class="op">=</span> [lemmatizer.lemmatize(word) <span class="cf">for</span> word <span class="kw">in</span> words <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">' '</span>.join(words)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply preprocessing to the relevant columns</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Cleaned Study Title'</span>] <span class="op">=</span> medical_trials[<span class="st">'Study Title'</span>].<span class="bu">apply</span>(preprocess_text)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Cleaned Brief Summary'</span>] <span class="op">=</span> medical_trials[<span class="st">'Brief Summary'</span>].<span class="bu">apply</span>(preprocess_text)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Cleaned Conditions'</span>] <span class="op">=</span> medical_trials[<span class="st">'Conditions'</span>].<span class="bu">apply</span>(preprocess_text)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Cleaned Locations'</span>] <span class="op">=</span> medical_trials[<span class="st">'Locations'</span>].<span class="bu">apply</span>(preprocess_text)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode categorical variables</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>status_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>design_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Encoded Study Status'</span>] <span class="op">=</span> status_encoder.fit_transform(medical_trials[<span class="st">'Study Status'</span>])</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Encoded Study Design'</span>] <span class="op">=</span> design_encoder.fit_transform(medical_trials[<span class="st">'Study Design'</span>])</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode text columns using TF-IDF</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>tfidf_vectorizer <span class="op">=</span> TfidfVectorizer(max_features<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>tfidf_title <span class="op">=</span> tfidf_vectorizer.fit_transform(medical_trials[<span class="st">'Cleaned Study Title'</span>])</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>tfidf_summary <span class="op">=</span> tfidf_vectorizer.fit_transform(medical_trials[<span class="st">'Cleaned Brief Summary'</span>])</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>tfidf_conditions <span class="op">=</span> tfidf_vectorizer.fit_transform(medical_trials[<span class="st">'Cleaned Conditions'</span>])</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>tfidf_locations <span class="op">=</span> tfidf_vectorizer.fit_transform(medical_trials[<span class="st">'Cleaned Locations'</span>])</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>df_tfidf_title <span class="op">=</span> pd.DataFrame(tfidf_title.toarray(), columns<span class="op">=</span>[<span class="ss">f'title_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(tfidf_title.shape[<span class="dv">1</span>])])</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>df_tfidf_summary <span class="op">=</span> pd.DataFrame(tfidf_summary.toarray(), columns<span class="op">=</span>[<span class="ss">f'summary_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(tfidf_summary.shape[<span class="dv">1</span>])])</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>df_tfidf_conditions <span class="op">=</span> pd.DataFrame(tfidf_conditions.toarray(), columns<span class="op">=</span>[<span class="ss">f'conditions_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(tfidf_conditions.shape[<span class="dv">1</span>])])</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>df_tfidf_locations <span class="op">=</span> pd.DataFrame(tfidf_locations.toarray(), columns<span class="op">=</span>[<span class="ss">f'locations_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(tfidf_locations.shape[<span class="dv">1</span>])])</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> pd.concat([medical_trials.reset_index(drop<span class="op">=</span><span class="va">True</span>), df_tfidf_title, df_tfidf_summary, df_tfidf_conditions, df_tfidf_locations], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain 'Cleaned' columns </span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>cleaned_columns <span class="op">=</span> [<span class="st">'Cleaned Study Title'</span>, <span class="st">'Cleaned Brief Summary'</span>, <span class="st">'Cleaned Conditions'</span>, <span class="st">'Cleaned Locations'</span>]</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> pd.concat([medical_trials[cleaned_columns], medical_trials.drop(columns<span class="op">=</span>cleaned_columns)], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorize trials into Oncology and Autoimmune Diseases</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> categorize_conditions(conditions):</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'cancer'</span> <span class="kw">in</span> conditions <span class="kw">or</span> <span class="st">'tumor'</span> <span class="kw">in</span> conditions <span class="kw">or</span> <span class="st">'oncology'</span> <span class="kw">in</span> conditions:</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Oncology'</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'autoimmune'</span> <span class="kw">in</span> conditions <span class="kw">or</span> <span class="st">'rheumatoid'</span> <span class="kw">in</span> conditions <span class="kw">or</span> <span class="st">'lupus'</span> <span class="kw">in</span> conditions:</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Autoimmune'</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Other'</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Category'</span>] <span class="op">=</span> medical_trials[<span class="st">'Cleaned Conditions'</span>].<span class="bu">apply</span>(categorize_conditions)</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out non-relevant categories</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">!=</span> <span class="st">'Other'</span>]</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows of the updated DataFrame</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(medical_trials.head())</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for clustering</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> medical_trials[[<span class="st">'Encoded Study Status'</span>, <span class="st">'Encoded Study Design'</span>]] </span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute missing values</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>imputer <span class="op">=</span> SimpleImputer(strategy<span class="op">=</span><span class="st">'mean'</span>)</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>imputed_features <span class="op">=</span> imputer.fit_transform(features)</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale features</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>scaled_features <span class="op">=</span> scaler.fit_transform(imputed_features)</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-section-a4-data-exploration-and-descriptive-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="code-section-a4-data-exploration-and-descriptive-statistics">Code section A4: Data Exploration and Descriptive Statistics</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive Statistics</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Total number of trials in the dataset</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>total_trials <span class="op">=</span> medical_trials.shape[<span class="dv">0</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total number of trials: </span><span class="sc">{</span>total_trials<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of trials by category</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>trial_counts <span class="op">=</span> medical_trials[<span class="st">'Category'</span>].value_counts()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Number of trials by category:</span><span class="ch">\n</span><span class="sc">{</span>trial_counts<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Study status distribution</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>status_distribution <span class="op">=</span> medical_trials[<span class="st">'Study Status'</span>].value_counts()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Study status distribution:</span><span class="ch">\n</span><span class="sc">{</span>status_distribution<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Study design distribution</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>design_distribution <span class="op">=</span> medical_trials[<span class="st">'Study Design'</span>].value_counts()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Study design distribution:</span><span class="ch">\n</span><span class="sc">{</span>design_distribution<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate duration of trials</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Trial Duration'</span>] <span class="op">=</span> (medical_trials[<span class="st">'Completion Date'</span>] <span class="op">-</span> medical_trials[<span class="st">'Start Date'</span>]).dt.days</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive statistics for numeric features</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>numeric_stats <span class="op">=</span> medical_trials[[<span class="st">'Trial Duration'</span>]].describe()</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Descriptive statistics for trial duration:</span><span class="ch">\n</span><span class="sc">{</span>numeric_stats<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Exploratory Data Analysis</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot number of trials by category</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>trial_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Number of Trials by Category'</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Category'</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Trials'</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'trials_by_category.png'</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot study status distribution</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>status_distribution.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Study Status Distribution'</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Status'</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Trials'</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'study_status_distribution.png'</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot study design distribution</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>design_distribution.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Study Design Distribution'</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Design'</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Trials'</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'study_design_distribution.png'</span>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot trial duration distribution</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>plt.hist(medical_trials[<span class="st">'Trial Duration'</span>].dropna(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Trial Duration Distribution'</span>)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Duration (days)'</span>)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Trials'</span>)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'trial_duration_distribution.png'</span>)</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-section-a5-main-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="code-section-a5-main-analysis">Code section A5: Main Analysis</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency analysis of conditions</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>oncology_conditions <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Cleaned Conditions'</span>]).split()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>autoimmune_conditions <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Cleaned Conditions'</span>]).split()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>oncology_freq <span class="op">=</span> Counter(oncology_conditions)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>autoimmune_freq <span class="op">=</span> Counter(autoimmune_conditions)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common oncology conditions:</span><span class="ch">\n</span><span class="sc">{</span>oncology_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common autoimmune conditions:</span><span class="ch">\n</span><span class="sc">{</span>autoimmune_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency analysis of study titles</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>oncology_titles <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Cleaned Study Title'</span>]).split()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>autoimmune_titles <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Cleaned Study Title'</span>]).split()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>oncology_title_freq <span class="op">=</span> Counter(oncology_titles)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>autoimmune_title_freq <span class="op">=</span> Counter(autoimmune_titles)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common keywords in oncology study titles:</span><span class="ch">\n</span><span class="sc">{</span>oncology_title_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common keywords in autoimmune study titles:</span><span class="ch">\n</span><span class="sc">{</span>autoimmune_title_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate and save word clouds</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_word_cloud(text, title, filename):</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    wordcloud <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">400</span>, background_color<span class="op">=</span><span class="st">'white'</span>).generate(text)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    plt.imshow(wordcloud, interpolation<span class="op">=</span><span class="st">'bilinear'</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    plt.title(title, size<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    plt.savefig(filename, <span class="bu">format</span><span class="op">=</span><span class="st">'png'</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>oncology_conditions_text <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Conditions'</span>])</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>autoimmune_conditions_text <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Conditions'</span>])</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>oncology_titles_text <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Study Title'</span>])</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>autoimmune_titles_text <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Study Title'</span>])</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>generate_word_cloud(oncology_conditions_text, <span class="st">'Most Common Oncology Conditions'</span>, <span class="st">'oncology_conditions_wordcloud.png'</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>generate_word_cloud(autoimmune_conditions_text, <span class="st">'Most Common Autoimmune Conditions'</span>, <span class="st">'autoimmune_conditions_wordcloud.png'</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>generate_word_cloud(oncology_titles_text, <span class="st">'Most Common Keywords in Oncology Study Titles'</span>, <span class="st">'oncology_titles_wordcloud.png'</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>generate_word_cloud(autoimmune_titles_text, <span class="st">'Most Common Keywords in Autoimmune Study Titles'</span>, <span class="st">'autoimmune_titles_wordcloud.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract year from Start Date and Completion Date</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Start Year'</span>] <span class="op">=</span> medical_trials[<span class="st">'Start Date'</span>].dt.year</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Completion Year'</span>] <span class="op">=</span> medical_trials[<span class="st">'Completion Date'</span>].dt.year</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of trials started each year</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>oncology_trials <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>].groupby(<span class="st">'Start Year'</span>).size()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>autoimmune_trials <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>].groupby(<span class="st">'Start Year'</span>).size()</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the number of trials started each year</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.plot(oncology_trials.index, oncology_trials.values, label<span class="op">=</span><span class="st">'Oncology'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.plot(autoimmune_trials.index, autoimmune_trials.values, label<span class="op">=</span><span class="st">'Autoimmune'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Trials'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Number of Trials Started Each Year'</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'trials_started_each_year.png'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Completion rates over time</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>oncology_completion <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>].groupby(<span class="st">'Completion Year'</span>).size()</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>autoimmune_completion <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>].groupby(<span class="st">'Completion Year'</span>).size()</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the completion rates over time</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.plot(oncology_completion.index, oncology_completion.values, label<span class="op">=</span><span class="st">'Oncology'</span>)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>plt.plot(autoimmune_completion.index, autoimmune_completion.values, label<span class="op">=</span><span class="st">'Autoimmune'</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Trials Completed'</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Number of Trials Completed Each Year'</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'trials_completed_each_year.png'</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of study statuses</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>oncology_status <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Study Status'</span>].value_counts()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>autoimmune_status <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Study Status'</span>].value_counts()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Distribution of study statuses for oncology:</span><span class="ch">\n</span><span class="sc">{</span>oncology_status<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Distribution of study statuses for autoimmune diseases:</span><span class="ch">\n</span><span class="sc">{</span>autoimmune_status<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze interventions and primary outcome measures</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>oncology_interventions <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Interventions'</span>]).split(<span class="st">'|'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>autoimmune_interventions <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Interventions'</span>]).split(<span class="st">'|'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>oncology_intervention_freq <span class="op">=</span> Counter(oncology_interventions)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>autoimmune_intervention_freq <span class="op">=</span> Counter(autoimmune_interventions)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common interventions for oncology:</span><span class="ch">\n</span><span class="sc">{</span>oncology_intervention_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common interventions for autoimmune diseases:</span><span class="ch">\n</span><span class="sc">{</span>autoimmune_intervention_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>oncology_outcome_measures <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Primary Outcome Measures'</span>]).split(<span class="st">'|'</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>autoimmune_outcome_measures <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Primary Outcome Measures'</span>]).split(<span class="st">'|'</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>oncology_outcome_freq <span class="op">=</span> Counter(oncology_outcome_measures)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>autoimmune_outcome_freq <span class="op">=</span> Counter(autoimmune_outcome_measures)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common primary outcome measures for oncology:</span><span class="ch">\n</span><span class="sc">{</span>oncology_outcome_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common primary outcome measures for autoimmune diseases:</span><span class="ch">\n</span><span class="sc">{</span>autoimmune_outcome_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and analyze the Locations column</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>oncology_locations <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Locations'</span>]).split(<span class="st">'|'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>autoimmune_locations <span class="op">=</span> <span class="st">' '</span>.join(medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Locations'</span>]).split(<span class="st">'|'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>oncology_location_freq <span class="op">=</span> Counter(oncology_locations)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>autoimmune_location_freq <span class="op">=</span> Counter(autoimmune_locations)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common locations for oncology trials:</span><span class="ch">\n</span><span class="sc">{</span>oncology_location_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Most common locations for autoimmune trials:</span><span class="ch">\n</span><span class="sc">{</span>autoimmune_location_freq<span class="sc">.</span>most_common(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze study designs for oncology and autoimmune trials</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>oncology_study_designs <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Oncology'</span>][<span class="st">'Study Design'</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>autoimmune_study_designs <span class="op">=</span> medical_trials[medical_trials[<span class="st">'Category'</span>] <span class="op">==</span> <span class="st">'Autoimmune'</span>][<span class="st">'Study Design'</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency distributions</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>oncology_design_freq <span class="op">=</span> oncology_study_designs.value_counts()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>autoimmune_design_freq <span class="op">=</span> autoimmune_study_designs.value_counts()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Oncology Study Designs:"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(oncology_design_freq)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Autoimmune Study Designs:"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(autoimmune_design_freq)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot frequency distributions</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>oncology_design_freq.plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Oncology Study Designs'</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Study Design'</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>autoimmune_design_freq.plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Autoimmune Study Designs'</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Study Design'</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'Oncology_Study_Designs.png'</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'Autoimmune_Study_Designs.png'</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-section-a6-topic-modeling-with-latent-dirichlet-allocation-lda-and-k-means-clustering" class="level4">
+<h4 class="anchored" data-anchor-id="code-section-a6-topic-modeling-with-latent-dirichlet-allocation-lda-and-k-means-clustering">Code section A6: Topic Modeling with Latent Dirichlet Allocation (LDA) and K-Means Clustering</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> LatentDirichletAllocation</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perform_topic_modeling(text_data, n_topics<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Vectorize the text data</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    vectorizer <span class="op">=</span> CountVectorizer(max_features<span class="op">=</span><span class="dv">1000</span>, stop_words<span class="op">=</span><span class="st">'english'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    text_data_vectorized <span class="op">=</span> vectorizer.fit_transform(text_data)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply LDA</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    lda <span class="op">=</span> LatentDirichletAllocation(n_components<span class="op">=</span>n_topics, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    lda.fit(text_data_vectorized)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Display topics</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    topics <span class="op">=</span> []</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, topic <span class="kw">in</span> <span class="bu">enumerate</span>(lda.components_):</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        top_terms <span class="op">=</span> [vectorizer.get_feature_names_out()[i] <span class="cf">for</span> i <span class="kw">in</span> topic.argsort()[<span class="op">-</span><span class="dv">10</span>:]]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        topics.append(<span class="ss">f"Topic </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(top_terms)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> topics</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>text_data <span class="op">=</span> medical_trials[<span class="st">'Cleaned Brief Summary'</span>]</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>topics <span class="op">=</span> perform_topic_modeling(text_data)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic <span class="kw">in</span> topics:</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(topic)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#K-Means Clustering </span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Cluster'</span>] <span class="op">=</span> kmeans.fit_predict(scaled_features)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(medical_trials[[<span class="st">'Study Title'</span>, <span class="st">'Cluster'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder, StandardScaler</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out relevant columns</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>columns_to_keep <span class="op">=</span> [</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Study Title"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Study Status"</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Study Design"</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>medical_trials <span class="op">=</span> medical_trials_filled[columns_to_keep]</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode categorical variables</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>status_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>design_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Encoded Study Status'</span>] <span class="op">=</span> status_encoder.fit_transform(medical_trials[<span class="st">'Study Status'</span>])</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Encoded Study Design'</span>] <span class="op">=</span> design_encoder.fit_transform(medical_trials[<span class="st">'Study Design'</span>])</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for clustering</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> medical_trials[[<span class="st">'Encoded Study Status'</span>, <span class="st">'Encoded Study Design'</span>]]  <span class="co"># Use appropriate numerical features</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute missing values</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>imputer <span class="op">=</span> SimpleImputer(strategy<span class="op">=</span><span class="st">'mean'</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>imputed_features <span class="op">=</span> imputer.fit_transform(features)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale features</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>scaled_features <span class="op">=</span> scaler.fit_transform(imputed_features)</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply K-Means clustering</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>medical_trials[<span class="st">'Cluster'</span>] <span class="op">=</span> kmeans.fit_predict(scaled_features)</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows with cluster labels</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(medical_trials[[<span class="st">'Study Title'</span>, <span class="st">'Cluster'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
