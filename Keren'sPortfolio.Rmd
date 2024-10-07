@@ -52,9 +52,9 @@ I am currently pursuing an MSc in Data Science for Society and Business at Const
 ## Technical Skills
 
 **Programming**: R, R Markdown, Python, SQL, SAS, NLP, HTML, JavaScript, CSS.\
-**Technologies**: Git, Tableau, Microsoft Office Suite, RapidMiner.
+**Technologies**: Git, Tableau, Microsoft Office Suite, RapidMiner.\
 
-**Currently learning**: AWS, SPARQL, RDF, SAP
+**Currently learning**: AWS, SPARQL, RDF, SAP.\
 
 ## Language Profienciency
 
