@@ -44,14 +44,14 @@ I am currently pursuing an MSc in Data Science for Society and Business at Const
 -   [The application of Artificial Intelligence in Climate Risk Prediction](project10.html)\
     Objective: Developing AI-based models for predicting climate risks, with a focus on identifying areas vulnerable to climate change. The project will explore AI's potential to analyze climate data and forecast environmental impacts, helping inform decision-making processes for mitigation and adaptation strategies.
 
-**Note**: All ongoing projects are currently in the initialization stages. Each project has a designated repository that will be regularly updated with progress and developments. At this time, the full HTML files for these projects are not yet available, but updates will be added as the projects advance.
+**Note**: All ongoing projects are currently in the initialization stages. Each project has a designated repository that is be regularly updated with progress and developments. At this time, the full HTML files for these projects are not yet available, but updates will be added as the projects advance.
 
 
 
 
 ## Technical Skills
 
-**Programming**: R, R Markdown, Python, SQL, SAS, NLP, HTML, JavaScript, CSS.\
+**Programming**: R, R Markdown,R Shiny, Python, SQL, SAS, NLP, HTML, JavaScript, CSS.\
 **Technologies**: Git, Tableau, Microsoft Office Suite, RapidMiner.\
 
 **Currently learning**: AWS, SPARQL, RDF, SAP.\
@@ -66,5 +66,5 @@ I am currently pursuing an MSc in Data Science for Society and Business at Const
 
 Feel free to reach out for collaboration or questions regarding my projects.\
 - [LinkedIn](https://www.linkedin.com/in/kerendankwah)\
-- [Email](mailto:kerendankwah@gmail.com)\
+- [Email](mailto:kerendankwah@gmail.com)\ 
 
